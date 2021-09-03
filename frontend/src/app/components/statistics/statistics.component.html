@@ -1,0 +1,26 @@
+<div *ngIf="hasRoute('/')">
+  <div *ngFor="let statistic of statistics | async" class="statistics">
+    <ul>
+      <li>
+        <app-statistic [statistic]="statistic"></app-statistic>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="hasRoute('/statistics')">
+  <table class="table table-hover table-fixed">
+    <thead>
+      <tr>
+        <th scope="col">Age group</th>
+        <th scope="col">Favorite color</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let statistic of statistics | async">
+        <td>{{ statistic.ageGroup }}</td>
+        <td>{{ statistic.favoriteColor }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

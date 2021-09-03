@@ -1,0 +1,93 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="text">First name</label>
+    <input
+      type="text"
+      name="firstName"
+      id="firstName"
+      formControlName="firstName"
+      placeholder="First name"
+      required
+    />
+    <div *ngIf="submitted && fields.firstName.errors" class="has-error">
+      <span *ngIf="fields.firstName.errors.required">
+        First name is required.
+      </span>
+      <span *ngIf="fields.firstName.errors.minlength">
+        First name must be at least 3 characters long.
+      </span>
+      <span *ngIf="fields.firstName.errors.maxlength">
+        First name can be max 50 characters long.
+      </span>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="day">Last name</label>
+    <input
+      type="text"
+      name="lastName"
+      id="lastName"
+      formControlName="lastName"
+      placeholder="Last name"
+      required
+    />
+    <div *ngIf="submitted && fields.lastName.errors" class="has-error">
+      <span *ngIf="fields.lastName.errors.required">
+        Last name is required.
+      </span>
+      <span *ngIf="fields.lastName.errors.minlength">
+        Last name must be at least 3 characters long.
+      </span>
+      <span *ngIf="fields.lastName.errors.maxlength">
+        Last name can be max 50 characters long.
+      </span>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="day">Age</label>
+    <input
+      type="number"
+      name="age"
+      id="age"
+      formControlName="age"
+      placeholder="Age"
+      required
+    />
+    <div *ngIf="submitted && fields.age.errors" class="has-error">
+      <span *ngIf="fields.age.errors.required">
+        Age is required.
+      </span>
+      <span *ngIf="fields.age.errors.min">
+        Age must be greater than zero.
+      </span>
+      <span *ngIf="fields.age.errors.max">
+        Age cannot be more than 255.
+      </span>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="day">Favorite color</label>
+    <input
+      type="text"
+      name="favoriteColor"
+      id="favoriteColor"
+      formControlName="favoriteColor"
+      placeholder="Favorite color"
+      required
+    />
+    <div *ngIf="submitted && fields.favoriteColor.errors" class="has-error">
+      <span *ngIf="fields.favoriteColor.errors.required">
+        Favorite color is required.
+      </span>
+      <span *ngIf="fields.favoriteColor.errors.minlength">
+        Favorite color must be at least 3 characters long.
+      </span>
+      <span *ngIf="fields.favoriteColor.errors.maxlength">
+        Favorite color can be max 50 characters long.
+      </span>
+    </div>
+  </div>
+  <div class="form-control">
+    <input type="submit" value="Save" class="btn btn-success" />
+  </div>
+</form>

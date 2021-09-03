@@ -1,0 +1,36 @@
+<div class="container-btn">
+  <app-button text="New user" (btnClick)="addUser()"></app-button>
+</div>
+<table class="table table-hover table-fixed">
+  <thead>
+    <tr>
+      <th scope="col" width="33%">First name</th>
+      <th scope="col" width="33%">Last name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Favorite color</th>
+      <th scope="col" width="10%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | async">
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.favoriteColor }}</td>
+      <td class="col-icons">
+        <fa-icon
+          [icon]="faPencilAlt"
+          title="Edit {{ user.firstName }} {{ user.lastName }}"
+          [ngStyle]="{ cursor: 'pointer' }"
+          (click)="editUser(user.id)"
+        ></fa-icon>
+        <fa-icon
+          [icon]="faTrashAlt"
+          title="Remove {{ user.firstName }} {{ user.lastName }}"
+          [ngStyle]="{ cursor: 'pointer' }"
+          (click)="deleteUser(user.id)"
+        ></fa-icon>
+      </td>
+    </tr>
+  </tbody>
+</table>
